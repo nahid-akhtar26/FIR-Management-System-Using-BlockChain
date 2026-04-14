@@ -1,0 +1,250 @@
+.fir-tracking {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.tracking-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+}
+
+.tracking-header {
+  margin-bottom: 2.5rem;
+  padding: 2rem;
+  background: linear-gradient(135deg, #fef08a 0%, #f7fee7 50%, #ecfccb 100%);
+  border-radius: 1rem;
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.tracking-header h2 {
+  font-size: 2.25rem;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.tracking-header p {
+  color: var(--text-secondary);
+  font-size: 1.125rem;
+}
+
+.tracking-filters {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 1.25rem;
+  padding: 2rem;
+  margin-bottom: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-box svg {
+  position: absolute;
+  left: 1rem;
+  color: var(--text-secondary);
+  font-size: 1.25rem;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 0.875rem 1rem 0.875rem 3rem;
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-size: 1rem;
+}
+
+.search-box input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.status-filters {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: var(--transition);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.filter-btn:hover {
+  background-color: var(--bg-tertiary);
+}
+
+.filter-btn.active {
+  background-color: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+
+.fir-list-container {
+  min-height: 400px;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 4rem 1rem;
+  color: var(--text-secondary);
+}
+
+.empty-state svg {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  opacity: 0.5;
+}
+
+.fir-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.fir-card {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 1rem;
+  padding: 1.75rem;
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition);
+  display: block;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.fir-card:hover {
+  border-color: #84cc16;
+  transform: translateX(6px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  background: #fafafa;
+}
+
+.fir-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.fir-id-section {
+  flex: 1;
+}
+
+.fir-id {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 0.25rem;
+}
+
+.fir-date {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.fir-status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.status-icon {
+  font-size: 1.125rem;
+}
+
+.fir-card-body {
+  margin-bottom: 1rem;
+}
+
+.fir-description {
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.fir-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.fir-meta strong {
+  color: var(--text-primary);
+  margin-right: 0.5rem;
+}
+
+.fir-blockchain {
+  padding: 0.75rem;
+  background: rgba(40, 167, 69, 0.1);
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.875rem;
+  color: var(--success);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.hash-preview {
+  font-family: monospace;
+  font-size: 0.75rem;
+  opacity: 0.8;
+}
+
+.fir-review {
+  padding: 0.75rem;
+  background: var(--bg-tertiary);
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--text-primary);
+  margin-top: 0.5rem;
+}
+
+.fir-review strong {
+  color: var(--accent);
+}
+
+@media (max-width: 768px) {
+  .fir-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .status-filters {
+    justify-content: center;
+  }
+}
+

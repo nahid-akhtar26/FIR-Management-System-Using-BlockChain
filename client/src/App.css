@@ -1,0 +1,50 @@
+.App {
+  min-height: 100vh;
+  transition: var(--transition);
+}
+
+[data-theme="light"] {
+  --bg-primary: #fefce8;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #f7fee7;
+  --text-primary: #1f2937;
+  --text-secondary: #6b7280;
+  --accent: #84cc16;
+  --accent-hover: #65a30d;
+  --accent-light: #f7fee7;
+  --accent-yellow: #fef08a;
+  --accent-green: #d9f99d;
+  --success: #10b981;
+  --danger: #ef4444;
+  --warning: #f59e0b;
+  --border: #e5e7eb;
+  --shadow: rgba(0, 0, 0, 0.05);
+  --toast-bg: #ffffff;
+  --toast-text: #1f2937;
+}
+
+[data-theme="dark"] {
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #2d2d2d;
+  --bg-tertiary: #3d3d3d;
+  --text-primary: #ffffff;
+  --text-secondary: #b0b0b0;
+  --accent: #84cc16;
+  --accent-hover: #65a30d;
+  --accent-light: rgba(132, 204, 22, 0.15);
+  --accent-yellow: rgba(254, 240, 138, 0.2);
+  --accent-green: rgba(217, 249, 157, 0.2);
+  --success: #51cf66;
+  --danger: #ff6b6b;
+  --warning: #ffd43b;
+  --border: #404040;
+  --shadow: rgba(0, 0, 0, 0.3);
+  --toast-bg: #2d2d2d;
+  --toast-text: #ffffff;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
