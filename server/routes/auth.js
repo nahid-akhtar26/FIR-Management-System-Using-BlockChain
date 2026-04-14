@@ -6,10 +6,11 @@ const auth = require('../middleware/auth');
 const { generateOTP, storeOTP, verifyOTP, sendOTP } = require('../services/otp');
 
 const router = express.Router();
+const JWT_SECRET = process.env.JWT_SECRET || 'your_super_secret_jwt_key_change_this_in_production';
 
 // Generate JWT Token
 const generateToken = (userId) => {
-  return jwt.sign({ userId }, process.env.JWT_SECRET || 'your_super_secret_jwt_key_change_this_in_production', {
+  return jwt.sign({ userId }, JWT_SECRET, {
     expiresIn: '7d'
   });
 };
@@ -29,7 +30,7 @@ router.post('/register', [
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { name, email, password, phone, address, role } = req.body;
+    const { name, email, password, phone, address } = req.body;
 
     // Check if user already exists
     const existingUser = await User.findOne({ email });
@@ -44,7 +45,7 @@ router.post('/register', [
       password,
       phone,
       address: address || '',
-      role: role || 'user'
+      role: 'user'
     });
 
     await user.save();
@@ -174,14 +175,6 @@ router.post('/send-otp', [
     }
 
     const { identifier, method = 'sms' } = req.body;
-    
-    // Check if user exists (for login) or doesn't exist (for registration)
-    const user = await User.findOne({ 
-      $or: [
-        { email: identifier },
-        { phone: identifier }
-      ]
-    });
 
     // Generate and store OTP
     const otp = generateOTP();
@@ -214,7 +207,7 @@ router.post('/verify-otp', [
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { identifier, otp, action, name, phone, email, address, role } = req.body;
+    const { identifier, otp, action, name, phone, email, address } = req.body;
 
     // Verify OTP
     const verification = verifyOTP(identifier, otp);
@@ -281,7 +274,7 @@ router.post('/verify-otp', [
         phone,
         password: Math.random().toString(36).slice(-12), // Generate random password
         address: address || '',
-        role: role || 'user',
+        role: 'user',
         isOnline: true,
         lastSeen: new Date()
       });
@@ -312,4 +305,3 @@ router.post('/verify-otp', [
 });
 
 module.exports = router;
-

@@ -40,6 +40,7 @@ const verifyFIRRecord = (fir) => {
     block.hash === fir.blockchainHash &&
     block.previousHash === fir.blockchainPreviousHash &&
     block.index === fir.blockchainBlockIndex &&
+    block.dataHash === fir.blockchainDataHash &&
     block.dataHash === expectedDataHash;
 
   return {

@@ -6,6 +6,7 @@ class SimpleBlockchain {
   constructor(storageFile = path.join(__dirname, 'chain.json')) {
     this.storageFile = storageFile;
     this.chain = this.loadChain();
+    this.difficulty = 2;
   }
 
   loadChain() {
@@ -64,7 +65,7 @@ class SimpleBlockchain {
       .digest('hex');
   }
 
-  mineBlock(payload, difficulty = 2) {
+  mineBlock(payload, difficulty = this.difficulty) {
     const previousBlock = this.chain[this.chain.length - 1];
     const index = this.chain.length;
     const timestamp = new Date().toISOString();
@@ -122,12 +123,30 @@ class SimpleBlockchain {
   }
 
   isChainValid() {
+    if (!Array.isArray(this.chain) || this.chain.length === 0) return false;
+
+    const genesis = this.chain[0];
+    const expectedGenesis = this.createGenesisBlock();
+    if (
+      genesis.index !== expectedGenesis.index ||
+      genesis.firId !== expectedGenesis.firId ||
+      genesis.previousHash !== expectedGenesis.previousHash ||
+      genesis.hash !== expectedGenesis.hash
+    ) {
+      return false;
+    }
+
+    const prefix = '0'.repeat(this.difficulty);
     for (let i = 1; i < this.chain.length; i += 1) {
       const current = this.chain[i];
       const previous = this.chain[i - 1];
       const computedHash = this.calculateBlockHash(current);
 
       if (current.hash !== computedHash) {
+        return false;
+      }
+
+      if (!current.hash.startsWith(prefix)) {
         return false;
       }
 
